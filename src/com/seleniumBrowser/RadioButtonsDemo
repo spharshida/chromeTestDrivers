@@ -1,0 +1,29 @@
+package com.seleniumBrowser;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class RadioButtonsDemo {
+	@Test
+	public void TestRadioButtons() throws Exception {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/campaign/landing.php");
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.xpath("//*[@id=\"sex\"]")).click();
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//*[@id=\"sex\"]")).click();
+		Thread.sleep(3000);
+		
+		int radiobtn = driver.findElements(By.xpath("//*[@id=\"sex\"]")).size();
+		
+		System.out.println("No. of radio buttons - " + radiobtn);
+		driver.quit();
+	}
+
+}
+
+

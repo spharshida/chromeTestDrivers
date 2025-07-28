@@ -1,0 +1,30 @@
+package com.seleniumBrowser;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class dropdownDemo {
+
+	public static void main(String[] args) throws Exception {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/campaign/landing.php?%22");
+		driver.manage().window().maximize();
+
+		WebElement monthDropdown = driver.findElement(By.id("month"));
+		Select month_dd = new Select(monthDropdown);
+		
+		month_dd.selectByIndex(9);
+		Thread.sleep(2000);
+		
+		month_dd.selectByValue("9");
+		Thread.sleep(2000);
+		
+		month_dd.selectByVisibleText("Dec");
+		Thread.sleep(5000);
+		
+	}
+
+}
